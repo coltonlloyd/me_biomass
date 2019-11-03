@@ -1,5 +1,5 @@
 import os
-from multime.auxotroph_analysis import load_model
+from me_cofactor import load_model
 aux_to_ko = {'default': [],
              'pydxn': ['PDX5PS1', 'PDX5PS2'], # PDX5PS in iJO, but unlumped for ME
              'thm': ['THZPSN31'],

@@ -5,7 +5,7 @@ import pickle
 import cobra
 import numpy as np
 from IPython import embed
-from multime.auxotroph_analysis.load_model import load_me_model
+from me_cofactor.load_model import load_me_model
 
 target_to_flux = {}
 target_to_shadow = {}

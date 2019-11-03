@@ -67,11 +67,10 @@ here = dirname(abspath(__file__))
 def load_me_model(json=False):
     # Load and update ME-model
     if not json:
-        with open('/home/sbrg-cjlloyd/multime/multime/iJL1678b_ML_keffs.pickle',
-                  'rb') as f:
+        with open('%s/iJL1678b_ML_KO_keffs.pickle' % here, 'rb') as f:
             model = pickle.load(f)
     else:
-        model = load_json_me_model('%s/iJL1678b_ML_keffs.json' % here)
+        model = load_json_me_model('%s/iJL1678b_ML_KO_keffs.json' % here)
 
     model.reactions.get_by_id(
         'PDH_FWD_PYRUVATEDEH-CPLX_mod_mg2_mod_fad_mod_thmpp_mod_lipo').keff = 1500.
