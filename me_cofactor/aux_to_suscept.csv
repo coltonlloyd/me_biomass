@@ -1,0 +1,9 @@
+,min_0,min_1,min_2,max_0,max_1,max_2
+pnto__R,C_acald_e,C_ac_e,C_ppal_e,N_anaerobic_gua_e,C_anaerobic_LalaLglu_e,C_anaerobic_adn_e
+thf,C_gly_e,C_cgly_e,C_progly_e,N_anaerobic_adn_e,N_anaerobic_gua_e,C_anaerobic_adn_e
+nac,C_etoh_e,C_fald_e,C_ptrc_e,C_anaerobic_alaala_e,C_anaerobic_LalaDgluMdap_e,C_anaerobic_glu__L_e
+gthox,C_xan_e,C_gua_e,C_ade_e,C_anaerobic_dgmp_e,C_anaerobic_dimp_e,C_anaerobic_dtmp_e
+ribflv,C_butso3_e,C_ocdca_e,C_hdca_e,C_anaerobic_mal__D_e,C_anaerobic_glu__L_e,C_anaerobic_adn_e
+btn,C_ptrc_e,N_ptrc_e,C_ppal_e,C_anaerobic_glu__L_e,C_anaerobic_mal__D_e,C_anaerobic_adn_e
+pydxn,C_orn_e,C_ptrc_e,C_asp__L_e,C_anaerobic_thrp_e,C_anaerobic_mal__D_e,C_anaerobic_adn_e
+thm,C_anaerobic_ala__D_e,C_anaerobic_ala__L_e,C_glyclt_e,C_anaerobic_mal__D_e,N_anaerobic_glu__L_e,N_anaerobic_gua_e
