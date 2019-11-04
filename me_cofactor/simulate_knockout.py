@@ -17,7 +17,7 @@ import json
 import time
 import pandas as pd
 import argparse
-from multime.auxotroph_analysis.load_model import load_me_model
+from me_cofactor.load_model import load_me_model
 
 # ------------------------------------------------------------
 # Modules to Manipulate Model
@@ -28,9 +28,9 @@ import cobra
 # Parameters
 # ------------------------------------------------------------
 # Bisection parameters
-MU_PREC = 1e-8
+MU_PREC = 1e-13
 MU_MIN = 0.
-MU_MAX = 1.1
+MU_MAX = 3.0
 
 use_soplex=False
 
@@ -175,24 +175,21 @@ if not use_soplex:
 else:
     sol = solve_at_growth_rate(model, .05)
     if model.solution.status == 'optimal':
-        binary_search(model, min_mu=.05, max_mu=1.5)
+        binary_search(model, min_mu=.05, max_mu=MU_MAX, mu_accuracy=MU_PREC)
     else:
         model.solution = None
 
-output_dir = os.getcwd() + '/knockout_sims/'
+output_dir = os.getcwd() + '/media_sims/'
 if GENE_ID:
     output_file = GENE_ID
 else:
-    output_file = AUXOTROPHY + '_' + SOURCE + '_' + MEDIA
+    output_file = AEROBICITY + '_' + SOURCE + '_' + MEDIA
 
-if AEROBICITY == 'anaerobic':
-    prefix = '_anaerobic'
-else:
-    prefix = ''
+
 if model.solution is not None:
-    with open(output_dir + '/' + output_file + '%s_sol.json' % prefix, 'w') as f:
+    with open(output_dir + '/%s_sol.json' % output_file, 'w') as f:
         json.dump(model.solution.x_dict, f)
 
 else:
-    with open(output_dir + '/' + output_file + '%s_sol.json' % prefix, 'w') as f:
+    with open(output_dir + '/%s_sol.json' % output_file, 'w') as f:
         json.dump({}, f)
