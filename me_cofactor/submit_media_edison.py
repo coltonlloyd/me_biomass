@@ -3,7 +3,7 @@ from me_cofactor import load_model
 
 me = load_model.load_me_model(json=True)
 
-gene = ''
+gene = 'None'
 auxotrophy = 'default'
 source_dir = os.getcwd() + '/media_sims/'
 if not os.path.isdir(source_dir):
@@ -28,3 +28,4 @@ for aerobicity in ['aerobic', 'anaerobic']:
                 continue
             os.system("sbatch edison_submit_job %s %s %s %s %s" %
                       (gene, aerobicity, auxotrophy, media, source))
+            1/0

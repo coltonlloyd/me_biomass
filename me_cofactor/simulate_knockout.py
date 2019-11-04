@@ -92,6 +92,8 @@ here = dirname(abspath(__file__))
 
 
 model = load_me_model(json=True)
+if GENE_ID.lower() == 'none':
+    GENE_ID = None
 
 if GENE_ID:
     model.reactions.get_by_id('translation_' + GENE_ID).knock_out()
