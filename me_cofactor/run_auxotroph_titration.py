@@ -7,7 +7,7 @@ import numpy as np
 from sympy import Basic
 from IPython import embed
 import cobrame
-from multime.auxotroph_analysis.load_model import load_me_model, currency_met_to_synthesis_rxn
+from me_cofactor.load_model import load_me_model, currency_met_to_synthesis_rxn
 
 me = load_me_model()
 
@@ -26,7 +26,7 @@ aux_to_ko = {'default': [],
              'pydxn': ['PDX5PS1', 'PDX5PS2'], # PDX5PS in iJO, but unlumped for ME
              'thm': ['THZPSN31'],
              'nac': ['ASPO3', 'ASPO4', 'ASPO5', 'ASPO6'],
-             'thf': ['DHFR'],  # actually GCALLD, but seems unlikely
+             'thf': ['DHFS'],  # actually GCALLD, but seems unlikely
              'met__L': ['HSST'],  # from flexneri 2a
              'pnto__R': ['PANTS'],
              'ribflv': ['RBFSb'],
@@ -71,7 +71,7 @@ for met in list(aux_to_ko.keys()):
     if met == 'default':
         print('Running', met, 'with no modifications')
         me_nlp = ME_NLP1(model, growth_key='mu')
-        me_nlp.bisectmu(precision=1e-8, mumax=1.5, mumin=.4996)
+        me_nlp.bisectmu(precision=1e-12, mumax=2, mumin=.4996)
         target_to_flux[met] = model.solution.x_dict
         target_to_shadow[met] = dict(
             zip(model.metabolites.list_attr('id'), me_nlp.pi))
@@ -109,14 +109,14 @@ for met in list(aux_to_ko.keys()):
             target_to_reduced[met] = {}
             continue
 
-        muopt, hs, xopt, cache = me_nlp.bisectmu(precision=1e-8, mumax=1.5,
+        muopt, hs, xopt, cache = me_nlp.bisectmu(precision=1e-12, mumax=2,
                                                  mumin=0, basis=hs)
 
         max_uptake = model.solution.x_dict[aux_uptake_r.id]
         titrate_list = np.linspace(max_uptake/20, max_uptake, 20)
         for uptake in titrate_list:
             aux_uptake_r.lower_bound = uptake
-            muopt, hs, xopt, cache = me_nlp.bisectmu(precision=1e-8, mumax=1.5,
+            muopt, hs, xopt, cache = me_nlp.bisectmu(precision=1e-12, mumax=2,
                                                      mumin=0, basis=hs)
             col = met + '_' + str(abs(uptake))
             target_to_flux[col] = model.solution.x_dict
