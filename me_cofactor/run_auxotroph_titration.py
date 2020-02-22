@@ -26,7 +26,7 @@ aux_to_ko = {'default': [],
              'pydxn': ['PDX5PS1', 'PDX5PS2'], # PDX5PS in iJO, but unlumped for ME
              'thm': ['THZPSN31'],
              'nac': ['ASPO3', 'ASPO4', 'ASPO5', 'ASPO6'],
-             'thf': ['DHFS'],  # actually GCALLD, but seems unlikely
+             'thf': ['DHFR'],  # actually GCALLD, but seems unlikely
              'met__L': ['HSST'],  # from flexneri 2a
              'pnto__R': ['PANTS'],
              'ribflv': ['RBFSb'],
@@ -53,7 +53,8 @@ if anaerobic:
 else:
     suffix = ''
 for met in list(aux_to_ko.keys()):
-
+#    if met != 'thf':
+#        continue
     print(met)
     model = deepcopy(me)
     if anaerobic:
@@ -125,7 +126,7 @@ for met in list(aux_to_ko.keys()):
             target_to_reduced[col] = dict(
                 zip(model.reactions.list_attr('id'), me_nlp.rc))
 
-    save_dir = 'titration%s' % suffix
+    save_dir = 'titration_new%s' % suffix
     pd.DataFrame(target_to_flux).to_csv('./%s/fluxes.csv' % save_dir)
     pd.DataFrame(target_to_shadow).to_csv('./%s/shadow_wrt_target.csv' %
                                           save_dir)
