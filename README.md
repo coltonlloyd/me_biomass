@@ -1,4 +1,4 @@
-# Computing and analysing ME-model predicted biomass compositions
+# Computing and analyzing ME-model predicted biomass compositions
 
 Scripts to reproduce results in "Computation of condition-dependent proteome allocation reveals variability in the macro and micro nutrient requirements for growth"
 
