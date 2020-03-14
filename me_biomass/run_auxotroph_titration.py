@@ -1,13 +1,11 @@
 from qminospy.me1 import ME_NLP1
 from copy import deepcopy
 import pandas as pd
-import pickle
 import cobra
 import numpy as np
-from sympy import Basic
 from IPython import embed
 import cobrame
-from me_cofactor.load_model import load_me_model, currency_met_to_synthesis_rxn
+from me_biomass.load_model import load_me_model, currency_met_to_synthesis_rxn
 
 me = load_me_model()
 

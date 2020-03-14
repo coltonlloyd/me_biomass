@@ -9,15 +9,13 @@ except:
 import cobrame
 from cobrame.solve.algorithms import solve_at_growth_rate, binary_search
 
-import numpy as np
 import pickle
 import os
 from os.path import abspath, dirname, relpath
 import json
 import time
-import pandas as pd
 import argparse
-from me_cofactor.load_model import load_me_model
+from me_biomass.load_model import load_me_model
 
 # ------------------------------------------------------------
 # Modules to Manipulate Model
