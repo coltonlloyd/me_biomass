@@ -1,11 +1,8 @@
 from qminospy.me1 import ME_NLP1
-from copy import deepcopy
+
 import pandas as pd
-import pickle
-import cobra
-import numpy as np
-from IPython import embed
-from me_cofactor.load_model import load_me_model
+
+from me_biomass.load_model import load_me_model
 
 target_to_flux = {}
 target_to_shadow = {}

@@ -1,5 +1,5 @@
 import os
-from me_cofactor import load_model
+from me_biomass import load_model
 
 me = load_model.load_me_model(json=True)
 
@@ -8,7 +8,7 @@ auxotrophy = 'default'
 source_dir = os.getcwd() + '/media_sims/'
 if not os.path.isdir(source_dir):
     os.mkdir(source_dir)
-'N'
+
 for aerobicity in ['aerobic', 'anaerobic']:
 
     for source in ["C", "P", "S", "N"]:
